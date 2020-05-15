@@ -10,10 +10,10 @@ let wall = new Audio();
 let userScore = new Audio();
 let comScore = new Audio();
 
-hit.src = "sounds/ScottBing.m4a";
-wall.src = "sounds/ScottDum.m4a";
-comScore.src = "sounds/ShanUhOh.m4a";
-userScore.src = "sounds/ShanCheer.m4a";
+hit.src = "sounds/ScottBing.mp3";
+wall.src = "sounds/ScottDum.mp3";
+comScore.src = "sounds/ShanUhOh.mp3";
+userScore.src = "sounds/ShanCheer.mp3";
 
 // Ball object
 const ball = {
