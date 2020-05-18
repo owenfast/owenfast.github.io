@@ -15,15 +15,18 @@ wall.src = "sounds/ScottDum.mp3";
 comScore.src = "sounds/ShanUhOh.mp3";
 userScore.src = "sounds/ShanCheer.mp3";
 
+// Owen's Head as Ball
+const img = document.createElement("img");
+img.src = "owenSun2.png";
+
 // Ball object
 const ball = {
     x : canvas.width/2,
     y : canvas.height/2,
     radius : 10,
-    velocityX : 5,
-    velocityY : 5,
-    speed : 7,
-    color : "WHITE"
+    velocityX : 4,
+    velocityY : 4,
+    speed : 3,
 }
 
 // User Paddle
@@ -62,12 +65,12 @@ function drawRect(x, y, w, h, color){
 }
 
 // draw circle, will be used to draw the ball
-function drawArc(x, y, r, color){
-    ctx.fillStyle = color;
+function drawArc(x, y, r){
     ctx.beginPath();
     ctx.arc(x,y,r,0,Math.PI*2,true);
+    ctx.drawImage(img, x, y);
     ctx.closePath();
-    ctx.fill();
+
 }
 
 // listening to the mouse
@@ -84,7 +87,7 @@ function resetBall(){
     ball.x = canvas.width/2;
     ball.y = canvas.height/2;
     ball.velocityX = -ball.velocityX;
-    ball.speed = 7;
+    ball.speed = 3;
 }
 
 // draw the net
@@ -169,7 +172,7 @@ function update(){
         ball.velocityY = ball.speed * Math.sin(angleRad);
         
         // speed up the ball everytime a paddle hits it.
-        ball.speed += 0.1;
+        ball.speed += 0.07;
     }
 }
 
@@ -195,7 +198,7 @@ function render(){
     drawRect(com.x, com.y, com.width, com.height, com.color);
     
     // draw the ball
-    drawArc(ball.x, ball.y, ball.radius, ball.color);
+    drawArc(ball.x, ball.y, ball.radius) ;
 }
 function game(){
     update();
